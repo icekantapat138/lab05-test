@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.MemberCardDetailController">
+<AnchorPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.shop.controllers.MemberCardDetailController">
    <children>
 
       <Label fx:id="nameLabel" layoutX="207.0" layoutY="77.0" text="nameLabel">
@@ -52,5 +52,6 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button layoutX="706.0" layoutY="551.0" mnemonicParsing="false" onAction="#handlebackButton" text="Back" />
    </children>
 </AnchorPane>

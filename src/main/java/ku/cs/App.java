@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import com.github.saacsos.src.main.java.com.github.saacsos.FXRouter;
 import java.io.IOException;
 
 /**
@@ -17,10 +17,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("member_card_detail"));
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.bind(this, stage, "6310450433", 800, 600);
+        configRoute();
+        FXRouter.goTo("home");
     }
+
+    private static void configRoute() {
+        String packageStr = "ku/cs/";
+        FXRouter.when("home", packageStr+"home.fxml");
+        FXRouter.when("member_card_detail", packageStr+"member_card_detail.fxml");
+        FXRouter.when("viewhome" , packageStr + "viewhome.fxml" );
+    }
+
+
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

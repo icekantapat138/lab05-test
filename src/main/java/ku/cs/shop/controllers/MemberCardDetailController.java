@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import ku.cs.shop.models.MemberCard;
 import javafx.scene.control.Label;
+import com.github.saacsos.src.main.java.com.github.saacsos.FXRouter;
+
+import java.io.IOException;
 
 public class MemberCardDetailController {
 
@@ -20,7 +23,7 @@ public class MemberCardDetailController {
     public void initialize() {
         // initialize จะถูกเรียกให้ทำงานเมื่อมีการ load Controller นี้
         System.out.println("initialize MemberCardDetailController");
-        memberCard = new MemberCard("John Smith", "081-222-8888");
+        memberCard = (MemberCard) FXRouter.getData();
         showMemberCardData();
 
     }
@@ -58,6 +61,17 @@ public class MemberCardDetailController {
         cumulativePurchaseLabel.setText(cumulativePurchase);
         String point = "" + memberCard.getStamp();
         pointLabel.setText(point);
+    }
+
+    @FXML
+    public void handlebackButton(ActionEvent event){
+        try {
+            FXRouter.goTo("home");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า home ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
     }
 
 
